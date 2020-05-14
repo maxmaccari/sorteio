@@ -1,48 +1,68 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace-of-mind from prototype to production</p>
+<%= if @participant do %>
+  <h1>Welcome, <%= @participant.name %></h1>
 
-  <form phx-change="suggest" phx-submit="search">
-    <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"/>
-    <datalist id="results">
-      <%= for {app, _vsn} <- @results do %>
-        <option value="<%= app %>"><%= app %></option>
+  <%= if @draw_results do %>
+    <%= if @draw_results.winner? do %>
+      <h2>Congratulations!! You won the prize.</h2>
+
+      <%= if Enum.any?(@draw_results.other_winners) do %>
+        <h3>With you, won: </h3>
+
+        <ul>
+          <%= for winner <- @draw_results.other_winners do %>
+            <li><%= winner.name %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </datalist>
-    <button type="submit" phx-disable-with="Searching...">Go to Hexdocs</button>
-  </form>
-</section>
+    <% else %>
+      <%= if @competing do %>
+        <h2>Sorry!! You didn't win the prize. :(</h2>
+      <% else %>
+        <h2>The draw is done</h2>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
-</section>
+        <p>As you wasn't competing for the prize, you didn't win.</p>
+      <% end %>
+
+      <h3>Won: </h3>
+
+      <ul>
+        <%= for winner <- @draw_results.winners do %>
+          <li><%= winner.name %></li>
+        <% end %>
+    <% end %>
+
+  <% else %>
+    <%= if @competing do %>
+      <p>You're subscribed to participate of the draw. When it happens, you will be notified.</p>
+
+      <p>With you, other <%= @participants_count %> people are competing for the prize.</p>
+
+      <button class="btn btn-danger" phx-click="giveup" phx-disable-with="Giving up...">
+        I don't want the prize.
+      </button>
+    <% else %>
+      <p>There are <%= @participants_count %> people are competing for the prize.</p>
+
+      <button class="btn btn-danger" phx-click="subscribe" phx-disable-with="Subscribing...">
+        I want the prize too.
+      </button>
+    <% end %>
+  <% end %>
+<% else %>
+  <form class="signup" phx-submit="signup">
+    <h1 class="h3 mb-3 font-weight-normal">
+      Please, enter your name and your email to participate in the draw.
+    </h1>
+
+    <label for="name" class="sr-only">Your name</label>
+    <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required autofocus>
+
+    <label for="email" class="sr-only">Your email</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="Your email" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" phx-disable-with="Signing up...">Sign up</button>
+  </form>
+
+  <p>There are <%= @participants_count %> people are competing for the prize.</p>
+
+<% end %>
