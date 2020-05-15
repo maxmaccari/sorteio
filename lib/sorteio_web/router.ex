@@ -1,5 +1,6 @@
 defmodule SorteioWeb.Router do
   use SorteioWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -10,8 +11,8 @@ defmodule SorteioWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :auth do
+    plug BasicAuth, use_config: {:sorteio, :dashboard_auth}
   end
 
   scope "/", SorteioWeb do
@@ -21,24 +22,13 @@ defmodule SorteioWeb.Router do
     live "/admin", AdminLive, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", SorteioWeb do
-  #   pipe_through :api
-  # end
-
-  # Enables LiveDashboard only for development
-  #
-  # If you want to use the LiveDashboard in production, you should put
-  # it behind authentication and allow only admins to access it.
-  # If your application does not have an admins-only section yet,
-  # you can use Plug.BasicAuth to set up some basic authentication
-  # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
-
-    scope "/" do
+  scope "/" do
+    if Mix.env() in [:dev, :test] do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: SorteioWeb.Telemetry
+    else
+      pipe_through [:browser, :auth]
     end
+
+    live_dashboard "/dashboard", metrics: SorteioWeb.Telemetry
   end
 end

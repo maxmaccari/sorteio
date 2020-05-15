@@ -20,7 +20,7 @@ defmodule Sorteio.MixProject do
   def application do
     [
       mod: {Sorteio.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule Sorteio.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:distillery, "~> 2.1"}
+      {:distillery, "~> 2.1"},
+      {:basic_auth, "~> 2.2.2"}
     ]
   end
 
