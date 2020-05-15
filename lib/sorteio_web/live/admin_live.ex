@@ -10,7 +10,6 @@ defmodule SorteioWeb.AdminLive do
     {:ok,
      assign(socket,
        authenticated: false,
-       error: nil,
        participants_count: Draw.participants_count(),
        count: 1,
        draw_results: nil,

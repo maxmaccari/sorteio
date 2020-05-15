@@ -1,68 +1,100 @@
 <%= if @participant do %>
-  <h1>Welcome, <%= @participant.name %></h1>
+  <h1 class="title is-3 is-spaced">Hello, <%= @participant.name %></h1>
 
   <%= if @draw_results do %>
     <%= if @draw_results.winner? do %>
-      <h2>Congratulations!! You won the prize.</h2>
+      <h2 class="title is-4 is-spaced">Congratulations!! You won the prize.</h2>
 
       <%= if Enum.any?(@draw_results.other_winners) do %>
-        <h3>With you, won: </h3>
+        <div class="content">
+          <h3 class="title is-5 is-spaced">With you, won: </h3>
+
+          <ul>
+            <%= for winner <- @draw_results.other_winners do %>
+              <li><%= winner.name %></li>
+            <% end %>
+          </ul>
+
+        </div>
+      <% end %>
+
+      <p>So, the draw is done. Thank you for participating. :)</p>
+    <% else %>
+      <%= if @competing do %>
+        <h2 class="title is-4 is-spaced">Sorry!! The draw is done and you didn't win the prize. :(</h2>
+      <% else %>
+        <div class="content">
+          <h2 class="title is-4 is-spaced">The draw is done</h2>
+
+          <p>As you wasn't competing for the prize, you didn't win.</p>
+        </div>
+      <% end %>
+
+      <div class="content">
+        <h3 class="title is-5 is-spaced">Won: </h3>
 
         <ul>
-          <%= for winner <- @draw_results.other_winners do %>
+          <%= for winner <- @draw_results.winners do %>
             <li><%= winner.name %></li>
           <% end %>
         </ul>
-      <% end %>
-    <% else %>
-      <%= if @competing do %>
-        <h2>Sorry!! You didn't win the prize. :(</h2>
-      <% else %>
-        <h2>The draw is done</h2>
-
-        <p>As you wasn't competing for the prize, you didn't win.</p>
-      <% end %>
-
-      <h3>Won: </h3>
-
-      <ul>
-        <%= for winner <- @draw_results.winners do %>
-          <li><%= winner.name %></li>
-        <% end %>
+      </div>
     <% end %>
 
   <% else %>
     <%= if @competing do %>
-      <p>You're subscribed to participate of the draw. When it happens, you will be notified.</p>
+      <div class="level">
+        <p class="is-large">You're subscribed to participate of the draw. When it happens, you will be notified.</p>
+      </div>
 
-      <p>With you, other <%= @participants_count %> people are competing for the prize.</p>
+      <div class="level">
+        <p class="is-medium">With you, other <%= @participants_count %> people are competing for the prize.</p>
+      </div>
 
-      <button class="btn btn-danger" phx-click="giveup" phx-disable-with="Giving up...">
+      <button class="button is-danger" phx-click="giveup" phx-disable-with="Giving up...">
         I don't want the prize.
       </button>
     <% else %>
-      <p>There are <%= @participants_count %> people are competing for the prize.</p>
+      <div class="level">
+        <p class="is-large">There are <%= @participants_count %> people are competing for the prize.</p>
+      </div>
 
-      <button class="btn btn-danger" phx-click="subscribe" phx-disable-with="Subscribing...">
+      <button class="button is-primary" phx-click="subscribe" phx-disable-with="Subscribing...">
         I want the prize too.
       </button>
     <% end %>
   <% end %>
 <% else %>
-  <form class="signup" phx-submit="signup">
-    <h1 class="h3 mb-3 font-weight-normal">
-      Please, enter your name and your email to participate in the draw.
-    </h1>
+  <div class="columns">
+    <form class="signup column is-half is-offset-one-quarter" phx-submit="signup">
+      <h1 class="title is-3 is-spaced">
+        Please, enter your name and your email to participate in the draw.
+      </h1>
 
-    <label for="name" class="sr-only">Your name</label>
-    <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required autofocus>
+      <div class="field">
+        <label for="name" class="label sr-only">Your name</label>
+        <div class="control">
+          <input class="input" id="name" name="name" placeholder="Your name" required autofocus>
+        </div>
+      </div>
 
-    <label for="email" class="sr-only">Your email</label>
-    <input type="email" id="email" name="email" class="form-control" placeholder="Your email" required>
+      <div class="field">
+        <label for="email" class="label sr-only">Your email</label>
+        <div class="control">
+          <input class="input" type="email" id="email" name="email" placeholder="Your email" required>
+        </div>
+      </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" phx-disable-with="Signing up...">Sign up</button>
-  </form>
+      <button class="button is-link" type="submit" phx-disable-with="Signing up...">Sign up</button>
+    </form>
+  </div>
 
-  <p>There are <%= @participants_count %> people are competing for the prize.</p>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        There are <%= @participants_count %> people are competing for the prize.
+      </p>
+    </div>
+  </footer>
 
 <% end %>
