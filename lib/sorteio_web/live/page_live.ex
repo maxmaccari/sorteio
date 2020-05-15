@@ -70,4 +70,9 @@ defmodule SorteioWeb.PageLive do
        }
      )}
   end
+
+  @impl true
+  def handle_info(_, socket) do
+    {:noreply, socket}
+  end
 end

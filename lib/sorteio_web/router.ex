@@ -18,6 +18,7 @@ defmodule SorteioWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    live "/admin", AdminLive, :index
   end
 
   # Other scopes may use custom stacks.

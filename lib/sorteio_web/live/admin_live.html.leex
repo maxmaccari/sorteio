@@ -1,0 +1,50 @@
+<%= if @authenticated do %>
+  <h1>Hello, admin.</h1>
+
+  <p>There are <%= @participants_count %> people are competing for the prize.</p>
+
+  <%= if @draw_results do %>
+    <h3>The draw was performed.</h3>
+
+    The winners are:
+
+    <ul>
+      <%= for winner <- @draw_results.winners do %>
+        <li>
+          <%= winner.name %>
+
+          <%= if @show_emails? do %>
+            - <%= winner.email %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>To make the draw, enter the desired number of winners and press the button:</p>
+
+    <form class="signup" phx-submit="draw">
+      <label for="count" class="sr-only">Participants count</label>
+      <input type="number" id="count" name="count" class="form-control" value="<%= @count %>" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" phx-disable-with="Drawing...">Draw</button>
+    </form>
+
+    The list of the 100 last participants are:
+    <ul>
+
+    </ul>
+  <% end %>
+
+<% else %>
+  <form class="signup" phx-submit="signin">
+    <h1 class="h3 mb-3 font-weight-normal">
+      Please, enter your secret password to admin the draw
+    </h1>
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Your password" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" phx-disable-with="Signing in...">Login</button>
+  </form>
+
+  <p>There are <%= @participants_count %> people are competing for the prize.</p>
+<% end %>
