@@ -3,8 +3,6 @@ defmodule SorteioWeb.AdminLive do
 
   alias Sorteio.Draw
 
-  @secret "s3cr3t"
-
   @impl true
   def mount(_params, _session, socket) do
     Draw.subscribe()
@@ -22,7 +20,7 @@ defmodule SorteioWeb.AdminLive do
 
   @impl true
   def handle_event("signin", %{"password" => password}, socket) do
-    if password == @secret do
+    if password == secret() do
       {:noreply,
        socket
        |> assign(error: nil, authenticated: true)
@@ -65,5 +63,9 @@ defmodule SorteioWeb.AdminLive do
   @impl true
   def handle_info(_, socket) do
     {:noreply, socket}
+  end
+
+  defp secret do
+    System.get_env("SORTEIO_PASSWORD", "s3cr3t")
   end
 end
