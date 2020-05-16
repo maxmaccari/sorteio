@@ -116,6 +116,11 @@ defmodule SorteioWeb.ParticipantLive do
   end
 
   @impl true
+  def handle_info(:results_cleared, socket) do
+    {:noreply, assign(socket, draw_results: nil)}
+  end
+
+  @impl true
   def handle_info(_, socket) do
     {:noreply, socket}
   end

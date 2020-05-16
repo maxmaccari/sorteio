@@ -16,12 +16,8 @@ defmodule Sorteio.Draw.State do
   end
 
   @doc false
-  def assign_results(
-        %Sorteio.Draw.State{} = state,
-        winners,
-        losers
-      ) do
-    %Sorteio.Draw.State{state | results: Draw.Results.new(winners, losers)}
+  def clear_results(%Sorteio.Draw.State{} = state) do
+    %Sorteio.Draw.State{state | results: nil}
   end
 
   @spec subscribe_participant(Sorteio.Draw.State.t(), Sorteio.Draw.Participant.t()) ::

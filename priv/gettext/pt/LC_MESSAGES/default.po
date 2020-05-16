@@ -12,201 +12,211 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:33
+#: lib/sorteio_web/live/participant_live.html.leex:14
 msgid "As you wasn't competing for the prize, you didn't win."
 msgstr "Como você não estava concorrendo ao prêmio, você não ganhou."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:6
+#: lib/sorteio_web/live/participant/win_component.ex:7
 msgid "Congratulations!! You won the prize."
 msgstr "Parabéns!! Você ganhou o prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:50
+#: lib/sorteio_web/live/admin/dashboard_component.ex:56
 msgid "Draw"
 msgstr "Sortear"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:50
+#: lib/sorteio_web/live/admin/dashboard_component.ex:56
 msgid "Drawing..."
 msgstr "Sorteando..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:58
+#: lib/sorteio_web/live/participant/waiting_component.ex:16
 msgid "Giving up..."
 msgstr "Desistindo..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:2
+#: lib/sorteio_web/live/participant_live.html.leex:2
 msgid "Hello, %{name}"
 msgstr "Olá, %{name}"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:4
+#: lib/sorteio_web/live/admin/dashboard_component.ex:9
 msgid "Hello, admin."
 msgstr "Olá, admin."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:59
+#: lib/sorteio_web/live/participant/waiting_component.ex:17
 msgid "I don't want the prize."
 msgstr "Eu não quero concorrer ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:67
+#: lib/sorteio_web/live/participant/waiting_component.ex:25
 msgid "I want the prize too."
 msgstr "Eu também quero concorrer ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:67
+#: lib/sorteio_web/live/admin/login_component.ex:18
 msgid "Login"
 msgstr "Login"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:43
+#: lib/sorteio_web/live/admin/dashboard_component.ex:49
 msgid "Participants count"
 msgstr "Quantidade de Participantes"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:63
+#: lib/sorteio_web/live/admin/login_component.ex:14
 msgid "Password"
 msgstr "Senha"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:92
+#: lib/sorteio_web/live/participant/signup_component.ex:10
 msgid "Please, enter your name and your email to participate in the draw."
 msgstr "Por favor, informe o seu nome e o seu email para participar do sorteio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:59
+#: lib/sorteio_web/live/admin/login_component.ex:10
 msgid "Please, enter your secret password to admin the draw."
 msgstr "Por favor, entre com a sua senha para administrar o sorteio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:34
+#: lib/sorteio_web/live/admin/dashboard_component.ex:39
 msgid "Reset"
 msgstr "Resetar"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:34
+#: lib/sorteio_web/live/admin/dashboard_component.ex:39
 msgid "Reseting...."
 msgstr "Resetando..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:73
+#: lib/sorteio_web/live/participant/waiting_component.ex:30
 msgid "Sign out"
 msgstr "Sair"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:109
+#: lib/sorteio_web/live/participant/signup_component.ex:27
 msgid "Sign up"
 msgstr "Entrar"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:67
+#: lib/sorteio_web/live/admin/login_component.ex:18
 msgid "Signing in..."
 msgstr "Entrando..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:72
+#: lib/sorteio_web/live/participant/waiting_component.ex:29
 msgid "Signing out..."
 msgstr "Saindo..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:109
+#: lib/sorteio_web/live/participant/signup_component.ex:27
 msgid "Signing up..."
 msgstr "Inscrevendo-se..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:23
+#: lib/sorteio_web/live/participant/win_component.ex:24
 msgid "So, the draw is done. Thank you for participating. :)"
 msgstr "Então, o sorteio já foi realizado. Obrigado por participar. :)"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:26
+#: lib/sorteio_web/live/participant/lose_component.ex:7
 msgid "Sorry!! The draw is done and you didn't win the prize. :("
 msgstr "Me desculpe!! O sorteio foi realizado e você não ganhou. :("
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:66
+#: lib/sorteio_web/live/participant/waiting_component.ex:24
 msgid "Subscribing..."
 msgstr "Inscrevendo-se..."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:31
-#: lib/sorteio_web/live/page_live.html.leex:78
+#: lib/sorteio_web/live/participant_live.html.leex:12
+#: lib/sorteio_web/live/participant_live.html.leex:27
 msgid "The draw is done"
 msgstr "O sorteio foi realizado."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:9
+#: lib/sorteio_web/live/admin/dashboard_component.ex:14
 msgid "The draw was performed."
 msgstr "O sorteio já foi realizado."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:19
-#: lib/sorteio_web/live/page_live.html.leex:38 lib/sorteio_web/live/page_live.html.leex:80
+#: lib/sorteio_web/live/admin/dashboard_component.ex:24
+#: lib/sorteio_web/live/participant/winners_component.ex:7
 msgid "The winners are:"
 msgstr "Os vencedores são:"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:116
+#: lib/sorteio_web/live/participant/signup_component.ex:34
 msgid "There are %{count} participants are competing for the prize."
 msgstr "Há %{count} participantes concorrendo ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:37
-#: lib/sorteio_web/live/admin_live.html.leex:73
+#: lib/sorteio_web/live/admin/dashboard_component.ex:43
+#: lib/sorteio_web/live/admin/login_component.ex:24
 msgid "There are %{count} participants competing for the prize."
 msgstr "Há %{count} participantes concorrendo ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:63
+#: lib/sorteio_web/live/participant/waiting_component.ex:21
 msgid "There are %{count} people are competing for the prize."
 msgstr "Há %{count} participantes concorrendo ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:12
+#: lib/sorteio_web/live/admin/dashboard_component.ex:17
 msgid "There was %{count} participants competing for the prize."
 msgstr "Haviam %{count} participantes concorrendo ao prêmio."
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:39
+#: lib/sorteio_web/live/admin/dashboard_component.ex:45
 msgid "To make the draw, enter the desired number of winners and press the button:"
 msgstr "Para realizar o sorteio, informe o número desejado de vencedores e aperte o botão:"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:15
+#: lib/sorteio_web/live/admin/dashboard_component.ex:20
 msgid "Toggle Email"
 msgstr "Exibir/esconder email"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:55
+#: lib/sorteio_web/live/participant/waiting_component.ex:13
 msgid "With you, other %{count} participants are competing for the prize."
 msgstr "Contigo, outros %{count} participantes estão concorrendo ao sorteio."
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:12
+#: lib/sorteio_web/live/participant/win_component.ex:13
 msgid "With you, the winners are:"
 msgstr "Além de você, os outros vencedores são:"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:51
+#: lib/sorteio_web/live/participant/waiting_component.ex:9
 msgid "You're subscribed to participate of the draw. When it happens, you will be notified."
 msgstr "Você se inscreveu para participar do sorteio. Quando isso acontecer, vamos te avisar. :)"
 
 #, elixir-format
-#: lib/sorteio_web/live/admin_live.html.leex:64
+#: lib/sorteio_web/live/admin/login_component.ex:15
 msgid "Your Password"
 msgstr "Sua senha"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:103
-#: lib/sorteio_web/live/page_live.html.leex:105
+#: lib/sorteio_web/live/participant/signup_component.ex:21
+#: lib/sorteio_web/live/participant/signup_component.ex:23
 msgid "Your email"
 msgstr "Seu email"
 
 #, elixir-format
-#: lib/sorteio_web/live/page_live.html.leex:96
-#: lib/sorteio_web/live/page_live.html.leex:98
+#: lib/sorteio_web/live/participant/signup_component.ex:14
+#: lib/sorteio_web/live/participant/signup_component.ex:16
 msgid "Your name"
 msgstr "Seu nome"
+
+#, elixir-format
+#: lib/sorteio_web/live/admin/dashboard_component.ex:40
+msgid "Undo draw"
+msgstr "Desfazer sorteio"
+
+#, elixir-format
+#: lib/sorteio_web/live/admin/dashboard_component.ex:40
+msgid "Undoing draw...."
+msgstr "Desfazendo sorteio..."

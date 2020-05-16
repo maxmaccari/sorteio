@@ -5,6 +5,7 @@ defmodule SorteioWeb.AdminLive do
   alias SorteioWeb.AdminLive.{DashboardComponent, LoginComponent}
 
   @impl true
+  @spec mount(any, any, Phoenix.LiveView.Socket.t()) :: {:ok, any}
   def mount(_params, _session, socket) do
     Draw.subscribe()
 
@@ -61,6 +62,13 @@ defmodule SorteioWeb.AdminLive do
   end
 
   @impl true
+  def handle_event("clear_results", _params, socket) do
+    Draw.clear_results()
+
+    {:noreply, assign(socket, count: 1, show_emails?: false)}
+  end
+
+  @impl true
   def handle_event("toggle_email", _params, socket) do
     {:noreply, assign(socket, show_emails?: !socket.assigns.show_emails?)}
   end
@@ -73,6 +81,11 @@ defmodule SorteioWeb.AdminLive do
   @impl true
   def handle_info({:participant_removed, _, count}, socket) do
     {:noreply, assign(socket, participants_count: count)}
+  end
+
+  @impl true
+  def handle_info(:results_cleared, socket) do
+    {:noreply, assign(socket, draw_results: nil)}
   end
 
   @impl true

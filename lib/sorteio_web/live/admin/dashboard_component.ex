@@ -37,6 +37,7 @@ defmodule SorteioWeb.AdminLive.DashboardComponent do
           </div>
 
           <button class="button is-danger" phx-click="reset" phx-disable-with="<%= gettext "Reseting...." %>"><%= gettext "Reset" %></button>
+          <button class="button is-danger" phx-click="clear_results" phx-disable-with="<%= gettext "Undoing draw...." %>"><%= gettext "Undo draw" %></button>
       </div>
       <% else %>
         <p><%= gettext "There are %{count} participants competing for the prize.", count: @participants_count %></p>

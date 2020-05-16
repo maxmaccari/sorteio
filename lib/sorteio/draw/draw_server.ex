@@ -20,6 +20,10 @@ defmodule Sorteio.Draw.DrawServer do
     GenServer.cast(__MODULE__, :reset)
   end
 
+  def clear_results() do
+    GenServer.cast(__MODULE__, :clear_results)
+  end
+
   def count_participants() do
     GenServer.call(__MODULE__, :count_participants)
   end
@@ -70,6 +74,13 @@ defmodule Sorteio.Draw.DrawServer do
     Draw.broadcast(:reseted)
 
     {:noreply, Draw.State.new()}
+  end
+
+  @impl true
+  def handle_cast(:clear_results, state) do
+    Draw.broadcast(:results_cleared)
+
+    {:noreply, Draw.State.clear_results(state)}
   end
 
   @impl true

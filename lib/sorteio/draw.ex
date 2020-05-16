@@ -7,6 +7,7 @@ defmodule Sorteio.Draw do
   defdelegate draw_participants(count), to: DrawServer
   defdelegate get_results, to: DrawServer
   defdelegate reset, to: DrawServer
+  defdelegate clear_results, to: DrawServer
 
   @spec add_participant(String.t(), String.t()) :: {:ok, Participant.t()}
   def add_participant(name, email) do
