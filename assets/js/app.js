@@ -17,8 +17,35 @@ import {Socket} from "phoenix"
 import NProgress from "nprogress"
 import {LiveSocket} from "phoenix_live_view"
 
+let data = sessionStorage.getItem('participant')
+let participant = data && JSON.parse(data)
+
+let Hooks = {}
+
+Hooks.ParticipantSignup = {
+  mounted() {
+    this.el.addEventListener("submit", (event) => {
+      const email = event.target.elements.email.value
+      const name = event.target.elements.name.value
+
+      const participant = {name, email}
+      const data = JSON.stringify(participant)
+
+      sessionStorage.setItem("participant", data)
+    }, false);
+  }
+}
+
+Hooks.SignOut = {
+  mounted() {
+    this.el.addEventListener("click", (event) => {
+      sessionStorage.removeItem("participant")
+    }, false);
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken, participant: participant}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
 window.addEventListener("phx:page-loading-start", info => NProgress.start())

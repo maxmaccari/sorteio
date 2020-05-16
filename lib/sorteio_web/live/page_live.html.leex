@@ -63,6 +63,10 @@
         I want the prize too.
       </button>
     <% end %>
+
+    <button class="button is-danger" phx-hook="SignOut" phx-click="sign_out" phx-disable-with="Signing out...">
+      Sign out
+    </button>
   <% end %>
 <% else %>
   <%= if @draw_results do %>
@@ -79,7 +83,7 @@
     </div>
   <% else %>
     <div class="columns">
-      <form class="signup column is-half is-offset-one-quarter" phx-submit="signup">
+      <form class="signup column is-half is-offset-one-quarter" phx-hook="ParticipantSignup" phx-submit="signup">
         <h1 class="title is-3 is-spaced">
           Please, enter your name and your email to participate in the draw.
         </h1>

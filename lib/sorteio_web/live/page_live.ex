@@ -7,11 +7,13 @@ defmodule SorteioWeb.PageLive do
   def mount(_params, _session, socket) do
     Draw.subscribe()
 
+    participant = load_participant(socket)
+
     socket =
       socket
       |> assign(
-        competing: false,
-        participant: nil,
+        competing: !!participant,
+        participant: participant,
         participants_count: Draw.count_participants(),
         draw_results: nil
       )
@@ -39,6 +41,11 @@ defmodule SorteioWeb.PageLive do
     Draw.subscribe_participant(socket.assigns.participant)
 
     {:noreply, assign(socket, competing: true)}
+  end
+
+  @impl true
+  def handle_event("sign_out", _, socket) do
+    {:noreply, assign(socket, participant: nil, competing: false)}
   end
 
   @impl true
@@ -124,6 +131,16 @@ defmodule SorteioWeb.PageLive do
       )
     else
       socket
+    end
+  end
+
+  def load_participant(socket) do
+    case get_connect_params(socket)["participant"] do
+      %{"email" => email, "name" => name} ->
+        {:ok, participant} = Draw.add_participant(name, email)
+
+        participant
+      _ -> nil
     end
   end
 end
