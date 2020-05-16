@@ -1,0 +1,212 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:33
+msgid "As you wasn't competing for the prize, you didn't win."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:6
+msgid "Congratulations!! You won the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:50
+msgid "Draw"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:50
+msgid "Drawing..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:58
+msgid "Giving up..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:2
+msgid "Hello, %{name}"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:4
+msgid "Hello, admin."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:59
+msgid "I don't want the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:67
+msgid "I want the prize too."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:67
+msgid "Login"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:43
+msgid "Participants count"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:63
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:92
+msgid "Please, enter your name and your email to participate in the draw."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:59
+msgid "Please, enter your secret password to admin the draw."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:34
+msgid "Reset"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:34
+msgid "Reseting...."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:73
+msgid "Sign out"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:109
+msgid "Sign up"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:67
+msgid "Signing in..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:72
+msgid "Signing out..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:109
+msgid "Signing up..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:23
+msgid "So, the draw is done. Thank you for participating. :)"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:26
+msgid "Sorry!! The draw is done and you didn't win the prize. :("
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:66
+msgid "Subscribing..."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:31
+#: lib/sorteio_web/live/page_live.html.leex:78
+msgid "The draw is done"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:9
+msgid "The draw was performed."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:19
+#: lib/sorteio_web/live/page_live.html.leex:38 lib/sorteio_web/live/page_live.html.leex:80
+msgid "The winners are:"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:116
+msgid "There are %{count} participants are competing for the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:37
+#: lib/sorteio_web/live/admin_live.html.leex:73
+msgid "There are %{count} participants competing for the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:63
+msgid "There are %{count} people are competing for the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:12
+msgid "There was %{count} participants competing for the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:39
+msgid "To make the draw, enter the desired number of winners and press the button:"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:15
+msgid "Toggle Email"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:55
+msgid "With you, other %{count} participants are competing for the prize."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:12
+msgid "With you, the winners are:"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:51
+msgid "You're subscribed to participate of the draw. When it happens, you will be notified."
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/admin_live.html.leex:64
+msgid "Your Password"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:103
+#: lib/sorteio_web/live/page_live.html.leex:105
+msgid "Your email"
+msgstr ""
+
+#, elixir-format
+#: lib/sorteio_web/live/page_live.html.leex:96
+#: lib/sorteio_web/live/page_live.html.leex:98
+msgid "Your name"
+msgstr ""

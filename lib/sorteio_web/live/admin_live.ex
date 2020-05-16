@@ -48,7 +48,7 @@ defmodule SorteioWeb.AdminLive do
 
   @impl true
   def handle_event("reset", _params, socket) do
-    reset = Draw.reset()
+    Draw.reset()
 
     {:noreply,
      assign(socket,

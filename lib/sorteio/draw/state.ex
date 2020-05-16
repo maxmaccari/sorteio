@@ -12,10 +12,7 @@ defmodule Sorteio.Draw.State do
         }
 
   def new do
-    %Sorteio.Draw.State{
-      participants: [],
-      results: nil
-    }
+    %Sorteio.Draw.State{}
   end
 
   @doc false
@@ -84,12 +81,6 @@ defmodule Sorteio.Draw.State do
     Enum.any?(participants, fn
       %Draw.Participant{email: email} -> participant_email == email
     end)
-  end
-
-  @doc false
-  @spec new :: Sorteio.Draw.State.t()
-  def new do
-    %Sorteio.Draw.State{}
   end
 
   @doc false
