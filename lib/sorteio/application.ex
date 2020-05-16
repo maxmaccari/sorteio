@@ -7,7 +7,7 @@ defmodule Sorteio.Application do
 
   def start(_type, _args) do
     children = [
-      Sorteio.Draw,
+      Sorteio.Draw.DrawServer,
       # Start the Telemetry supervisor
       SorteioWeb.Telemetry,
       # Start the PubSub system

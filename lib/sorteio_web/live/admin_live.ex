@@ -10,9 +10,9 @@ defmodule SorteioWeb.AdminLive do
     {:ok,
      assign(socket,
        authenticated: false,
-       participants_count: Draw.participants_count(),
+       participants_count: Draw.count_participants(),
        count: 1,
-       draw_results: nil,
+       draw_results: Draw.get_results(),
        show_emails?: false
      )}
   end
@@ -22,7 +22,8 @@ defmodule SorteioWeb.AdminLive do
     if password == secret() do
       {:noreply,
        socket
-       |> assign(error: nil, authenticated: true)
+       |> clear_flash()
+       |> assign(authenticated: true)
        |> put_flash(:sucess, "You're signed in succesfully.")}
     else
       {:noreply, put_flash(socket, :error, "The password is invalid!")}
@@ -34,15 +35,11 @@ defmodule SorteioWeb.AdminLive do
     count = String.to_integer(count)
 
     if count > 0 do
-      {winners, _losers} = Draw.draw_participants(count)
-
-      draw_results = %{
-        winners: winners
-      }
+      results = Draw.draw_participants(count)
 
       {:noreply,
        socket
-       |> assign(draw_results: draw_results)
+       |> assign(draw_results: results)
        |> put_flash(:success, "The draw was performed succesfully.")}
     else
       {:noreply, put_flash(socket, :error, "The count is invalid!")}
@@ -50,12 +47,25 @@ defmodule SorteioWeb.AdminLive do
   end
 
   @impl true
-  def handle_info({:participant_subscribe, _, count}, socket) do
+  def handle_event("reset", _params, socket) do
+    reset = Draw.reset()
+
+    {:noreply,
+     assign(socket,
+       participants_count: 0,
+       count: 1,
+       draw_results: Draw.get_results(),
+       show_emails?: false
+     )}
+  end
+
+  @impl true
+  def handle_info({:participant_subscribed, _, count}, socket) do
     {:noreply, assign(socket, participants_count: count)}
   end
 
   @impl true
-  def handle_info({:participant_giveup, _, count}, socket) do
+  def handle_info({:participant_removed, _, count}, socket) do
     {:noreply, assign(socket, participants_count: count)}
   end
 

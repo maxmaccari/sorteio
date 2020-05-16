@@ -65,36 +65,49 @@
     <% end %>
   <% end %>
 <% else %>
-  <div class="columns">
-    <form class="signup column is-half is-offset-one-quarter" phx-submit="signup">
-      <h1 class="title is-3 is-spaced">
-        Please, enter your name and your email to participate in the draw.
-      </h1>
+  <%= if @draw_results do %>
+    <div class="content">
+      <h2 class="title is-4 is-spaced">The draw is done</h2>
 
-      <div class="field">
-        <label for="name" class="label sr-only">Your name</label>
-        <div class="control">
-          <input class="input" id="name" name="name" placeholder="Your name" required autofocus>
-        </div>
-      </div>
+      <h3 class="title is-5 is-spaced">The winners are: </h3>
 
-      <div class="field">
-        <label for="email" class="label sr-only">Your email</label>
-        <div class="control">
-          <input class="input" type="email" id="email" name="email" placeholder="Your email" required>
-        </div>
-      </div>
-
-      <button class="button is-link" type="submit" phx-disable-with="Signing up...">Sign up</button>
-    </form>
-  </div>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        There are <%= @participants_count %> people are competing for the prize.
-      </p>
+        <ul>
+          <%= for winner <- @draw_results.winners do %>
+            <li><%= winner.name %></li>
+          <% end %>
+        </ul>
     </div>
-  </footer>
+  <% else %>
+    <div class="columns">
+      <form class="signup column is-half is-offset-one-quarter" phx-submit="signup">
+        <h1 class="title is-3 is-spaced">
+          Please, enter your name and your email to participate in the draw.
+        </h1>
 
+        <div class="field">
+          <label for="name" class="label sr-only">Your name</label>
+          <div class="control">
+            <input class="input" id="name" name="name" placeholder="Your name" required autofocus>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email" class="label sr-only">Your email</label>
+          <div class="control">
+            <input class="input" type="email" id="email" name="email" placeholder="Your email" required>
+          </div>
+        </div>
+
+        <button class="button is-link" type="submit" phx-disable-with="Signing up...">Sign up</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          There are <%= @participants_count %> people are competing for the prize.
+        </p>
+      </div>
+    </footer>
+  <% end %>
 <% end %>
