@@ -1,7 +1,15 @@
-defmodule SorteioWeb.PageLive do
+defmodule SorteioWeb.ParticipantLive do
   use SorteioWeb, :live_view
 
   alias Sorteio.Draw
+
+  alias SorteioWeb.ParticipantLive.{
+    WinComponent,
+    WinnersComponent,
+    LoseComponent,
+    SignupComponent,
+    WaitingComponent
+  }
 
   @impl true
   def mount(_params, _session, socket) do
@@ -140,7 +148,9 @@ defmodule SorteioWeb.PageLive do
         {:ok, participant} = Draw.add_participant(name, email)
 
         participant
-      _ -> nil
+
+      _ ->
+        nil
     end
   end
 end

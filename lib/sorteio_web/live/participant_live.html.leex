@@ -1,0 +1,34 @@
+<%= if @participant do %>
+  <h1 class="title is-3 is-spaced"><%= gettext "Hello, %{name}", name: @participant.name %></h1>
+
+  <%= if @draw_results do %>
+    <%= if @draw_results.winner? do %>
+     <%= live_component @socket, WinComponent, assigns %>
+    <% else %>
+      <%= if @competing do %>
+        <%= live_component @socket, LoseComponent, assigns %>
+      <% else %>
+        <div class="content">
+          <h2 class="title is-4 is-spaced"><%= gettext "The draw is done" %></h2>
+
+          <p><%= gettext "As you wasn't competing for the prize, you didn't win." %></p>
+        </div>
+      <% end %>
+
+      <%= live_component @socket, WinnersComponent, assigns %>
+    <% end %>
+
+  <% else %>
+    <%= live_component @socket, WaitingComponent, assigns %>
+  <% end %>
+<% else %>
+  <%= if @draw_results do %>
+    <div class="content">
+      <h2 class="title is-4 is-spaced"><%= gettext "The draw is done" %></h2>
+
+      <%= live_component @socket, WinnersComponent, assigns %>
+    </div>
+  <% else %>
+      <%= live_component @socket, SignupComponent, assigns %>
+  <% end %>
+<% end %>

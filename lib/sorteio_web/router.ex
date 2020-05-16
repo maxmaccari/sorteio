@@ -18,7 +18,7 @@ defmodule SorteioWeb.Router do
   scope "/", SorteioWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", ParticipantLive, :index
     live "/admin", AdminLive, :index
   end
 

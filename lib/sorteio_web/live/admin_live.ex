@@ -2,6 +2,7 @@ defmodule SorteioWeb.AdminLive do
   use SorteioWeb, :live_view
 
   alias Sorteio.Draw
+  alias SorteioWeb.AdminLive.{DashboardComponent, LoginComponent}
 
   @impl true
   def mount(_params, _session, socket) do
@@ -61,8 +62,7 @@ defmodule SorteioWeb.AdminLive do
 
   @impl true
   def handle_event("toggle_email", _params, socket) do
-    {:noreply,
-     assign(socket, show_emails?: !socket.assigns.show_emails?)}
+    {:noreply, assign(socket, show_emails?: !socket.assigns.show_emails?)}
   end
 
   @impl true
